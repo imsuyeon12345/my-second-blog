@@ -2,13 +2,16 @@
 
 {% block content %}
     <div class="post">
-            {% if post.published_date %}
-                <div class="date">
-                    {{ post.published_date }}
-                </div>
-            {% endif %}
+        {% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        {% if post.image %}
+            <img src ="{{ post.image.url }}" alt="connect" style="max-height: 300px">
         {% endif %}
             <h1>{{ post.title }}</h1>
             <p>{{ post.text|linebreaksbr }}</p>
