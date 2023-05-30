@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ('published_date', models.DateTimeField(blank=True, null=True)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('image', models.ImageField(blank=True, null=True, upload_to="Images/")),
+                ('video', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='blog.Video'))
             ],
         ),
     ]
